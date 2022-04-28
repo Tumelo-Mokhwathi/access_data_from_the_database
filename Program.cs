@@ -7,8 +7,7 @@ namespace access_data_from_the_database
 {
     public class Program
     {
-        private static string _connectionString = "Data Source=10.20.32.3;Initial Catalog=NovaDB;Persist Security Info=True;User ID=sa;Password=d7*FT+ef)_n+";
-        private static string _localConnectionString = "Data Source=192.168.0.56;Initial Catalog=NovaDB;Persist Security Info=True;User ID=sa;Password=d7*FT+ef)_n+";
+        private static string _connectionString = "Data Source=Server_Name;Initial Catalog=Database_Name;Persist Security Info=True;User ID=Your_ID;Password=Your_Password";
         public static void Main()
         {
             //DataResults();
@@ -56,7 +55,7 @@ namespace access_data_from_the_database
 
             try
             {
-                using (SqlConnection con = new SqlConnection(_localConnectionString))
+                using (SqlConnection con = new SqlConnection(_connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("dbo.spGetAllRegions", con);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -90,7 +89,7 @@ namespace access_data_from_the_database
 
             try
             {
-                using (SqlConnection con = new SqlConnection(_localConnectionString))
+                using (SqlConnection con = new SqlConnection(_connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("dbo.spGetRegionsPerId", con);
                     cmd.CommandType = CommandType.StoredProcedure;
